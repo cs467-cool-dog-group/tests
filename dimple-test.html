@@ -7,17 +7,17 @@
 
         </div>
     </body>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
     <script src="http://dimplejs.org/dist/dimple.v2.2.0.min.js"></script>
     <script>
-        var svg = dimple.newSvg("#testDiv", 590, 400);
-        // need to fetch data from Firebase instead of through json files
-        d3.json("test.json", function (data) {
-            console.log("data retrieved");
-            var myChart = new dimple.chart(svg, data);
+        var myFirebaseRef = new Firebase("https://cs467cooldoggroup.firebaseio.com/");
+        myFirebaseRef.on("value", function(snapshot) {
+            console.log(snapshot.val());
+            var svg = dimple.newSvg("#testDiv", 590, 400);
+            var myChart = new dimple.chart(svg, snapshot.val());
             myChart.setBounds(60, 30, 505, 305);
             var x = myChart.addCategoryAxis("x", "Date");
-            x.addOrderRule("Date");
             myChart.addMeasureAxis("y", "High");
             var s = myChart.addSeries(null, dimple.plot.line);
             myChart.draw();
