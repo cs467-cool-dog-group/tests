@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Timbre Test</title>
+    </head>
+    <body>
+
+    </body>
+    <script src="https://mohayonao.github.io/timbre.js/timbre.js"></script>
+    <script src="https://mohayonao.github.io/timbre.js/src/extras/audio-jsonp.js"></script>
+    <script src="https://mohayonao.github.io/timbre.js/src/extras/jsmad.js"></script>
+    <script src="https://mohayonao.github.io/timbre.js/src/extras/mp3_decode.js"></script>
+    <script src="https://mohayonao.github.io/timbre.js/src/extras/soundfont.js"></script>
+    <script>
+        // Instrument List: https://en.wikipedia.org/wiki/General_MIDI#Program_change_events
+        T.soundfont.setInstrument(41); // set instrument to violin - value between 0 - 127
+        T.soundfont.play(55); // play note - value between 0 - 127
+    </script>
+</html>
