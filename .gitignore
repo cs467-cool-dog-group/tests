@@ -1,2 +1,6 @@
 .ipynb_checkpoints
 __pycache__
+api_key.txt
+alchemyapi_python
+.DS_Store
+google_api_key.txt
